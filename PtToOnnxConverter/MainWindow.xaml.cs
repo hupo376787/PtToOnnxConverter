@@ -46,7 +46,7 @@ namespace PtToOnnxConverter
 
                 //运行conv.py
                 await CallTerminal(AutoFindPython()!, "conv.py");
-                
+
                 string onnx = Path.GetDirectoryName(ptFile) + "\\" + Path.GetFileNameWithoutExtension(ptFile) + ".onnx";
                 if (File.Exists(onnx))
                     AppendLog($"转换完成，输出路径{ptFile}");
@@ -150,7 +150,8 @@ namespace PtToOnnxConverter
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                tbLog.Text = $"{DateTime.Now}, {log}\r\n" + tbLog.Text;
+                if (!string.IsNullOrEmpty(log))
+                    tbLog.Text = $"{DateTime.Now}, {log}\r\n" + tbLog.Text;
             });
         }
 

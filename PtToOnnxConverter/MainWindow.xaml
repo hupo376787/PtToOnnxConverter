@@ -20,10 +20,11 @@
       Click="Select_Click"
       Content="Select pt model" />
 
-    <TextBox
-      x:Name="tbLog"
-      Grid.Row="1"
-      Margin="8"
-      AcceptsReturn="True" />
+    <ScrollViewer Grid.Row="1">
+      <TextBox
+        x:Name="tbLog"
+        Margin="8"
+        AcceptsReturn="True" />
+    </ScrollViewer>
   </Grid>
 </Window>
